@@ -37,7 +37,8 @@ const DEFAULTS=[{"id":"official-aquaworks-home-001","customer":"アクアワー�
 {"id":"official-excel-20261106-016","customer":"長田設備","place":"置き場","kind":"その他","folder":"481C","address":"JHCV+C69 甲府市、山梨県","maplink":"","memo":"","photo":""},
 {"id":"official-excel-20261106-017","customer":"長田設備","place":"","kind":"現場","folder":"481C","address":"〒400-0825 山梨県甲府市七沢町１３４−３","maplink":"","memo":"2階事務所に伝票","photo":""},
 {"id":"official-excel-20261106-018","customer":"イワタニ首都圏（株）山梨営業所","place":"","kind":"事務所","folder":"461C","address":"〒400-0111 山梨県甲斐市竜王新町２２８−１","maplink":"","memo":"受付に声掛け","photo":""},
-{"id":"official-excel-20261106-019","customer":"窪田住宅設備","place":"","kind":"自宅","folder":"481C","address":"〒400-0117 山梨県甲斐市西八幡４１４８","maplink":"","memo":"","photo":""}];
+{"id":"official-excel-20261106-019","customer":"窪田住宅設備","place":"","kind":"自宅","folder":"481C","address":"〒400-0117 山梨県甲斐市西八幡４１４８","maplink":"","memo":"","photo":""},
+{"id":"official-excel-20261106-008","customer":"佐野工建","place":"","kind":"事務所","folder":"461C","address":"〒409-3843 山梨県中央市西花輪４０２７−８","maplink":"","memo":"","photo":""}];
 const REMOVED_KEY='nouhinsaki-navi-removed-defaults';
 function removed(){try{return JSON.parse(localStorage.getItem(REMOVED_KEY)||'[]')}catch(e){return []}}
 function load(){try{let v=JSON.parse(localStorage.getItem(KEY)||'[]');items=Array.isArray(v)?v:[]}catch(e){items=[]}let deleted=removed();for(let x of DEFAULTS){if(deleted.includes(x.id))continue;let existing=items.find(y=>y.id===x.id);if(!existing){items.push({...x});continue}if(x.id==='official-kyochu-fujii-001'&&(!existing.address||existing.address==='35.7161694,138.4431802'))existing.address=x.address;if(!existing.maplink&&!existing.address&&x.maplink)existing.maplink=x.maplink;if(!existing.address&&x.address)existing.address=x.address;if(x.id==='official-takahashi-farwest-001'&&existing.kind!=='現場')existing.kind='現場'}}
