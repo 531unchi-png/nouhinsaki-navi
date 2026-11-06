@@ -90,8 +90,11 @@ function iconFor(type){return type==='事務所'?'▥':type==='自宅'?'⌂':typ
 function classFor(type){return type==='事務所'?'office':type==='自宅'?'home':type==='倉庫'?'warehouse':'other'}
 const FOLDERS=['411C','421C','431C','441C','461C','471C','481C'];
 const folderOf=x=>x.folder===undefined?'411C':(FOLDERS.includes(x.folder)?x.folder:'');
+let lastRenderedSearch='';
 function render(){
  const q=$('search').value.trim();
+ const searchJustCleared=!!lastRenderedSearch&&!q;
+ lastRenderedSearch=q;
  $('headerTotal').textContent=items.length;
  const filtered=items.filter(x=>searchMatch(x,q)&&(activeFilter==='すべて'||(activeFilter==='その他'?destinationType(x)==='その他':destinationType(x)===activeFilter)));
  document.querySelectorAll('.filter').forEach(b=>{const on=b.dataset.filter===activeFilter;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
@@ -100,7 +103,7 @@ function render(){
  const folderResults=FOLDERS.map(folder=>({folder, matches:filtered.filter(x=>folderOf(x)===folder), total:items.filter(x=>folderOf(x)===folder).length}));
  const shownFolders=q?folderResults.filter(f=>f.matches.length>0).sort((a,b)=>b.matches.length-a.matches.length):folderResults;
  const outside=filtered.filter(x=>folderOf(x)==='');
- root.innerHTML=shownFolders.map(({folder,matches,total})=>'<details class="folder-group" data-folder="'+folder+'" '+((q||previous[folder])?'open':'')+'><summary><span class="folder-symbol">📁</span><span class="folder-label">'+folder+'</span><span class="folder-total">'+(q?matches.length:total)+'件</span></summary><div class="folder-content"><div class="muted">'+matches.length+' 件の納品先</div>'+makeList(matches)+'</div></details>').join('')+(outside.length||!q?'<section class="folder-content" style="margin-top:20px"><h2>📍 フォルダ外（未指定）</h2>'+makeList(outside)+'</section>':'')+(q&&!filtered.length?'<div class="empty">検索に一致する納品先がありません。別の読み方や短い言葉で検索してください。</div>':'');
+ root.innerHTML=shownFolders.map(({folder,matches,total})=>'<details class="folder-group" data-folder="'+folder+'" '+((q||(!searchJustCleared&&previous[folder]))?'open':'')+'><summary><span class="folder-symbol">📁</span><span class="folder-label">'+folder+'</span><span class="folder-total">'+(q?matches.length:total)+'件</span></summary><div class="folder-content"><div class="muted">'+matches.length+' 件の納品先</div>'+makeList(matches)+'</div></details>').join('')+(outside.length||!q?'<section class="folder-content" style="margin-top:20px"><h2>📍 フォルダ外（未指定）</h2>'+makeList(outside)+'</section>':'')+(q&&!filtered.length?'<div class="empty">検索に一致する納品先がありません。別の読み方や短い言葉で検索してください。</div>':'');
  root.querySelectorAll('.edit').forEach(b=>b.onclick=()=>showEditor(items.find(x=>x.id===b.dataset.id)));
  root.querySelectorAll('.del').forEach(b=>b.onclick=()=>{if(confirm('この納品先を削除しますか？')){let old=items;items=items.filter(x=>x.id!==b.dataset.id);if(!save())items=old;else if(DEFAULTS.some(x=>x.id===b.dataset.id)){try{localStorage.setItem(REMOVED_KEY,JSON.stringify([...new Set([...removed(),b.dataset.id])]))}catch(e){}}render()}});
 }
