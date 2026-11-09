@@ -105,6 +105,17 @@ function destinationKey(entry) {
     duplicateText(entry.place), destinationType(entry), location]);
 }
 
+const SHARED_PHOTOS = {
+  "official-431c-20261109-002": "./photos/431c/takumi.png",
+  "official-431c-20261109-003": "./photos/431c/makoto-jusetsu.png",
+  "official-431c-20261109-007": "./photos/431c/koichido-center.png"
+};
+
+function destinationPhoto(entry, sharedPhotos) {
+  const source = entry.photo || sharedPhotos.get(destinationKey(entry));
+  return source ? '<img class="photo" alt="納品先写真" loading="lazy" src="'+esc(source)+'">' : '';
+}
+
 function shadowedDefaults() {
   const localKeys = new Set(items.filter(entry => !sharedById.has(entry.id))
     .map(destinationKey).filter(Boolean));
@@ -196,10 +207,12 @@ function render(){
  lastRenderedSearch=q;
  const shadowed=shadowedDefaults();
  const visibleItems=items.filter(entry=>!shadowed.has(entry));
+ const sharedPhotos = new Map(Object.entries(SHARED_PHOTOS)
+   .map(([id, source]) => [destinationKey(sharedById.get(id)), source]));
  $('headerTotal').textContent=visibleItems.length;
  const filtered=visibleItems.filter(x=>searchMatch(x,q)&&(activeFilter==='すべて'||(activeFilter==='その他'?destinationType(x)==='その他':destinationType(x)===activeFilter)));
  document.querySelectorAll('.filter').forEach(b=>{const on=b.dataset.filter===activeFilter;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
- const makeList=a=>{const groups=new Map();for(const x of a){if(!groups.has(x.customer))groups.set(x.customer,[]);groups.get(x.customer).push(x)}return a.length?[...groups].map(([name,places])=>'<details class="company-group" '+(q?'open':'')+'><summary><span class="company-title">'+esc(name)+'</span><span class="company-count">'+places.length+' 件</span></summary><div class="company-places">'+places.map(x=>'<article class="destination"><span class="tag">'+esc(destinationType(x))+'</span><h2>'+esc(x.place||x.customer)+'</h2>'+(x.address?'<p class="muted">📍 '+esc(x.address)+'</p>':'')+(x.memo?'<p class="muted" style="white-space:pre-wrap">'+esc(x.memo)+'</p>':'')+(x.photo?'<img class="photo" alt="納品先写真" src="'+x.photo+'">':'')+'<div class="actions">'+(!coordinatesReady&&x.maplink&&!x.address?'<button class="btn" type="button" disabled>地図を準備中…</button>':'<a class="btn" target="_blank" rel="noopener noreferrer" href="'+esc(mapurl(x))+'">➤ ナビ開始</a>')+'<button class="secondary edit" data-id="'+esc(x.id)+'">編集</button><button class="danger del" data-id="'+esc(x.id)+'">削除</button></div></article>').join('')+'</div></details>').join(''):'<div class="empty">該当する納品先がありません。</div>'};
+ const makeList=a=>{const groups=new Map();for(const x of a){if(!groups.has(x.customer))groups.set(x.customer,[]);groups.get(x.customer).push(x)}return a.length?[...groups].map(([name,places])=>'<details class="company-group" '+(q?'open':'')+'><summary><span class="company-title">'+esc(name)+'</span><span class="company-count">'+places.length+' 件</span></summary><div class="company-places">'+places.map(x=>'<article class="destination"><span class="tag">'+esc(destinationType(x))+'</span><h2>'+esc(x.place||x.customer)+'</h2>'+(x.address?'<p class="muted">📍 '+esc(x.address)+'</p>':'')+(x.memo?'<p class="muted" style="white-space:pre-wrap">'+esc(x.memo)+'</p>':'')+destinationPhoto(x, sharedPhotos)+'<div class="actions">'+(!coordinatesReady&&x.maplink&&!x.address?'<button class="btn" type="button" disabled>地図を準備中…</button>':'<a class="btn" target="_blank" rel="noopener noreferrer" href="'+esc(mapurl(x))+'">➤ ナビ開始</a>')+'<button class="secondary edit" data-id="'+esc(x.id)+'">編集</button><button class="danger del" data-id="'+esc(x.id)+'">削除</button></div></article>').join('')+'</div></details>').join(''):'<div class="empty">該当する納品先がありません。</div>'};
  const root=$('folderGroups');const previous={};root.querySelectorAll('details.folder-group').forEach(d=>previous[d.dataset.folder||'411C']=d.open);
  const folderResults=folderOrder.map(folder=>({folder, matches:filtered.filter(x=>folderOf(x)===folder), total:visibleItems.filter(x=>folderOf(x)===folder).length}));
  const shownFolders=q?folderResults.filter(f=>f.matches.length>0).sort((a,b)=>b.matches.length-a.matches.length):folderResults;
