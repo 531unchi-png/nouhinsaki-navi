@@ -19,7 +19,7 @@ main{max-width:700px;padding:16px 13px}.bar{margin:0 0 13px;gap:9px}.bar input{h
 .customer-picker{position:relative}.customer-entry{display:flex;gap:7px}.customer-entry input{flex:1;min-width:0}.customer-entry button{flex:0 0 48px;padding:8px;font-size:24px}.customer-suggestions{position:absolute;z-index:30;left:0;right:0;top:100%;max-height:260px;overflow-y:auto;background:white;border:1px solid #b9cbe0;border-radius:12px;box-shadow:0 8px 20px #10243c30}.customer-suggestions button{display:block;width:100%;border-radius:0;background:white;color:#12304d;box-shadow:none;text-align:left;border-bottom:1px solid #e5edf6;padding:13px 15px;font-size:16px}.customer-suggestions button:active{background:#e6f3ff}.customer-suggestions .empty-hint{padding:12px;color:#657589;font-size:13px}
 .folder-create-tools{margin:10px 0 14px}.folder-create-tools>button{width:100%;background:#e6eff9;color:#153f67;border:1px solid #bdd2e7}.folder-create-tools #folderCreatePanel{padding:12px;background:#fff;border:1px solid #c8d9ea;border-radius:13px;margin-top:8px}.folder-create-tools .hidden{display:none}.folder-order-tools{margin:10px 0 14px}.folder-order-tools>button{width:100%;background:#e6eff9;color:#153f67;border:1px solid #bdd2e7}.folder-order-tools #folderOrderPanel{padding:12px;background:#fff;border:1px solid #c8d9ea;border-radius:13px;margin-top:8px}.folder-order-row{display:flex;align-items:center;justify-content:space-between;padding:8px 2px;border-bottom:1px solid #edf1f6;gap:10px}.folder-order-row:last-child{border-bottom:0}.folder-order-row strong{font-size:17px}.folder-order-row button{padding:9px 14px;min-width:43px;margin-left:6px}.folder-order-row button:disabled{opacity:.3}.folder-order-tools .hidden{display:none}
 </style></head><body><header><div class="brand-line"><div class="brand-name"><img src="./icon.svg?v=2" alt="" class="brand-logo"><div><h1>納品先ナビ</h1><p>すぐ探せて、すぐ行ける。</p></div></div><span class="header-total">📍 <b id="headerTotal">71</b> 件</span></div><div style="margin-top:12px"><a href="https://531unchi-png.github.io/tanasagashi/" style="display:inline-flex;align-items:center;padding:9px 13px;border:1px solid #54708b;border-radius:10px;color:#e5f4ff;text-decoration:none;background:#203d5b;font-weight:600;font-size:14px">📦 棚さがしを開く</a></div></header><main>
-<section id="home"><div class="bar"><input id="search" placeholder="🔎 ひらがな・カタカナ・漢字で検索"><button id="add">＋登録</button></div><div id="folderGroups"><details id="folder411C" class="folder-group"><summary><span class="folder-symbol">📁</span><span class="folder-label">411C</span><span class="folder-total" id="folderTotal">71件</span></summary><div class="folder-content"><nav class="filters" id="filters" aria-label="納品先の種類"><button type="button" class="filter active" data-filter="すべて">すべて</button><button type="button" class="filter" data-filter="事務所">事務所</button><button type="button" class="filter" data-filter="自宅">自宅</button><button type="button" class="filter" data-filter="倉庫">倉庫</button><button type="button" class="filter" data-filter="その他">その他</button></nav><div id="count" class="muted"></div><div class="actions"><button class="secondary" id="reloadApp" type="button">🔄 最新データを確認</button></div><p class="muted">アプリ版: 2026.11.06.110 / 大元の登録: 108件</p><div id="list"></div></div></details></div><footer><div class="folder-order-tools"><button type="button" class="secondary" id="folderOrderToggle" aria-expanded="false">↕ フォルダの並び替え</button><div id="folderOrderPanel" class="hidden"><p class="muted">▲ ▼ で順番を変更。並び順はこのスマホだけに保存されます。</p><div id="folderOrderList"></div><button type="button" class="secondary" id="folderOrderReset">標準の順番に戻す</button></div></div><div class="folder-create-tools"><button type="button" class="secondary" id="folderCreateToggle" aria-expanded="false">＋ フォルダを作成</button><div id="folderCreatePanel" class="hidden"><label for="newFolderName">新しいフォルダ名</label><div class="bar"><input id="newFolderName" maxlength="24" placeholder="例：491C・自分用"><button type="button" id="folderCreateSave">作成</button></div><p class="muted">作成したフォルダはこのスマホだけに保存されます。</p></div></div><div class="actions"><button class="secondary" id="exportExcel">Excelで保存</button><button class="secondary" id="export">復元用バックアップ</button><button class="secondary" id="importBtn">復元用バックアップ読込</button></div><input class="hidden" type="file" accept="application/json" id="importFile"><p id="notice">情報はこの端末のブラウザ内だけに保存されます。他のスマホには自動共有されません。ブラウザのデータ削除・端末変更に備え、定期的にバックアップしてください。写真は容量を使うため、少数・小さめの画像をおすすめします。</p></footer></section>
+<section id="home"><div class="bar"><input id="search" placeholder="🔎 ひらがな・カタカナ・漢字で検索"><button id="add">＋登録</button></div><div id="folderGroups"><details id="folder411C" class="folder-group"><summary><span class="folder-symbol">📁</span><span class="folder-label">411C</span><span class="folder-total" id="folderTotal">71件</span></summary><div class="folder-content"><nav class="filters" id="filters" aria-label="納品先の種類"><button type="button" class="filter active" data-filter="すべて">すべて</button><button type="button" class="filter" data-filter="事務所">事務所</button><button type="button" class="filter" data-filter="自宅">自宅</button><button type="button" class="filter" data-filter="倉庫">倉庫</button><button type="button" class="filter" data-filter="その他">その他</button></nav><div id="count" class="muted"></div><div class="actions"><button class="secondary" id="reloadApp" type="button">🔄 最新データを確認</button></div><p class="muted">アプリ版: 2026.11.09.125 / 大元の登録: 124件</p><div id="list"></div></div></details></div><footer><div class="folder-order-tools"><button type="button" class="secondary" id="folderOrderToggle" aria-expanded="false">↕ フォルダの並び替え</button><div id="folderOrderPanel" class="hidden"><p class="muted">▲ ▼ で順番を変更。並び順はこのスマホだけに保存されます。</p><div id="folderOrderList"></div><button type="button" class="secondary" id="folderOrderReset">標準の順番に戻す</button></div></div><div class="folder-create-tools"><button type="button" class="secondary" id="folderCreateToggle" aria-expanded="false">＋ フォルダを作成</button><div id="folderCreatePanel" class="hidden"><label for="newFolderName">新しいフォルダ名</label><div class="bar"><input id="newFolderName" maxlength="24" placeholder="例：491C・自分用"><button type="button" id="folderCreateSave">作成</button></div><p class="muted">作成したフォルダはこのスマホだけに保存されます。</p></div></div><div class="actions"><button class="secondary" id="exportExcel">Excelで保存</button><button class="secondary" id="export">復元用バックアップ</button><button class="secondary" id="importBtn">復元用バックアップ読込</button></div><input class="hidden" type="file" accept="application/json" id="importFile"><p id="notice">情報はこの端末のブラウザ内だけに保存されます。他のスマホには自動共有されません。ブラウザのデータ削除・端末変更に備え、定期的にバックアップしてください。写真は容量を使うため、少数・小さめの画像をおすすめします。</p></footer></section>
 <section id="editor" class="hidden"><h2 id="formTitle">納品先を登録</h2><form id="form"><input type="hidden" id="id"><label>お客様名 *</label><div class="customer-picker"><div class="customer-entry"><input id="customer" required maxlength="100" autocomplete="off" placeholder="1文字入力で候補を表示"><button type="button" id="customerToggle" class="secondary" aria-label="お客様一覧を開く" aria-expanded="false">⌄</button></div><div id="customerSuggestions" class="customer-suggestions hidden" role="listbox"></div></div><div class="muted" style="margin-top:5px">既存のお客様から選択、または新しいお客様名を入力できます。</div><label>お客様名のふりがな（任意・検索用）</label><input id="customerReading" maxlength="120" placeholder="例：みのぶそうごうせつび"><div class="muted" style="margin-top:4px">漢字のお客様名は読み仮名も入力すると、ひらがな・カタカナや多少の入力違いでも検索できます。</div><label>保存先フォルダ</label><select id="folder"><option value="">フォルダ外（未指定）</option><option>411C</option><option>421C</option><option>431C</option><option>441C</option><option>461C</option><option>471C</option><option>481C</option></select><label>納品先名（任意）</label><input id="place" maxlength="100" placeholder="例：本社・資材倉庫・〇〇新築現場"><label>区分</label><select id="kind"><option>事務所</option><option>倉庫</option><option>現場</option><option>自宅</option><option>その他</option></select><label>場所の指定方法 *</label><select id="locationType"><option value="address">住所</option><option value="coordinates">座標（緯度・経度）</option><option value="pluscode">Plus Code</option></select><label id="locationLabel">住所</label><input id="address" placeholder="例：山梨県甲府市〇〇" autocomplete="off"><p id="locationHelp" style="font-size:12px;color:#627589;margin:5px 0">住所・座標・Plus Codeのどれか1つを入力してください。</p><label>Googleマップ共有リンク（任意）</label><input id="maplink" type="url" placeholder="正確な搬入口のピンURL"><label>搬入・受付・駐車の注意事項</label><textarea id="memo" placeholder="例：建物裏のシャッターから搬入。受付に声をかける"></textarea><label>現場写真（任意）</label><input type="file" id="photoFile" accept="image/*"><div id="photoPreview"></div><div class="actions"><button type="button" class="secondary" id="cancel">戻る</button><button type="submit">保存する</button></div></form></section></main>
 <script>
 const KEY='nouhinsaki-navi-v1';let items=[];let photo='';
@@ -57,9 +57,63 @@ const DEFAULTS=[{"id":"official-461c-uki-office-20261107-001","customer":"株式
 {"id":"official-excel-20261109-010","customer":"SUN FACE","place":"","kind":"倉庫","folder":"461C","address":"JGRJ+JVC 昭和町、山梨県","maplink":"","memo":"","photo":""}];
 const REMOVED_KEY='nouhinsaki-navi-removed-defaults';
 function removed(){try{return JSON.parse(localStorage.getItem(REMOVED_KEY)||'[]')}catch(e){return []}}
-function load(){try{let v=JSON.parse(localStorage.getItem(KEY)||'[]');items=Array.isArray(v)?v:[]}catch(e){items=[]}let deleted=removed();for(let x of DEFAULTS){if(deleted.includes(x.id))continue;let existing=items.find(y=>y.id===x.id);if(!existing){items.push({...x});continue}if(x.id==='official-kyochu-fujii-001'&&(!existing.address||existing.address==='35.7161694,138.4431802'))existing.address=x.address;if(!existing.maplink&&!existing.address&&x.maplink)existing.maplink=x.maplink;if(!existing.address&&x.address)existing.address=x.address;if(x.id==='official-takahashi-farwest-001'&&existing.kind!=='現場')existing.kind='現場'}}
+const loadedDefaults = new WeakSet();
+const sharedById = new Map(DEFAULTS.map(entry => [entry.id, entry]));
 
-function save(){try{localStorage.setItem(KEY,JSON.stringify(items));return true}catch(e){alert('保存できませんでした。写真の容量を減らすか、端末の空き容量を確認してください。');return false}}
+function duplicateText(value) {
+  return String(value ?? '').normalize('NFKC').toLowerCase().replace(/\s/g, '');
+}
+
+function destinationLocation(entry) {
+  const address = String(entry.address || verifiedCoordinates[entry.id] || '').trim();
+  let location = address;
+  if (!location && entry.maplink) {
+    try {
+      const url = new URL(entry.maplink);
+      if (url.hostname === 'www.google.com' && url.pathname === '/maps/search/') {
+        location = url.searchParams.get('query') || '';
+      }
+      if (!location) {
+        url.searchParams.delete('g_st');
+        return 'link:' + url.href;
+      }
+    } catch {
+      return '';
+    }
+  }
+  const coordinates = normalizeCoordinates(location.normalize('NFKC'));
+  if (coordinates) return 'coordinates:' + coordinates.split(',').map(Number).join(',');
+  return duplicateText(location).replace(/[−‐‑‒–—―]/g, '-')
+    .replace(/^(?:〒)?\d{3}-\d{4}/, '').replace(/^山梨県/, '').replace(/[、,]/g, '');
+}
+
+function destinationKey(entry) {
+  const customer = duplicateText(entry.customer);
+  const location = destinationLocation(entry);
+  if (!customer || !location) return '';
+  return JSON.stringify([customer, duplicateText(entry.folder ?? '411C'),
+    duplicateText(entry.place), destinationType(entry), location]);
+}
+
+function shadowedDefaults() {
+  const localKeys = new Set(items.filter(entry => !sharedById.has(entry.id))
+    .map(destinationKey).filter(Boolean));
+  return new Set(items.filter(entry => {
+    const shared = sharedById.get(entry.id);
+    if (!shared || !localKeys.has(destinationKey(entry))) return false;
+    // Keep any shared record that was edited on this device.
+    return Object.keys({...shared, ...entry}).every(key => (entry[key] ?? '') === (shared[key] ?? ''));
+  }));
+}
+
+function deviceDataForBackup() {
+  const shadowed = shadowedDefaults();
+  return items.filter(entry => !loadedDefaults.has(entry) || !shadowed.has(entry));
+}
+
+function load(){try{let v=JSON.parse(localStorage.getItem(KEY)||'[]');items=Array.isArray(v)?v:[]}catch(e){items=[]}let deleted=removed();for(let x of DEFAULTS){if(deleted.includes(x.id))continue;let existing=items.find(y=>y.id===x.id);if(!existing){const entry={...x};loadedDefaults.add(entry);items.push(entry);continue}if(x.id==='official-kyochu-fujii-001'&&(!existing.address||existing.address==='35.7161694,138.4431802'))existing.address=x.address;if(!existing.maplink&&!existing.address&&x.maplink)existing.maplink=x.maplink;if(!existing.address&&x.address)existing.address=x.address;if(x.id==='official-takahashi-farwest-001'&&existing.kind!=='現場')existing.kind='現場'}}
+
+function save(){try{localStorage.setItem(KEY,JSON.stringify(deviceDataForBackup()));return true}catch(e){alert('保存できませんでした。写真の容量を減らすか、端末の空き容量を確認してください。');return false}}
 function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 let verifiedCoordinates={};let coordinatesReady=false;
 function mapurl(x){const address=String(x.address||'').trim();const coord=/^-?\d{1,2}\.\d+\s*,\s*-?\d{1,3}\.\d+$/;const plus=address.match(/(?:^|\s)([23456789CFGHJMPQRVWX]{4,8}\+[23456789CFGHJMPQRVWX]{2,3})(?=\s|$)/i);let query='';if(address){if(normalizeCoordinates(address)){query=normalizeCoordinates(address);}else if(plus){const region=address.replace(plus[1],'').trim();query=plus[1].toUpperCase()+' '+(region||'山梨県');}else query=address;}else if(verifiedCoordinates[x.id])query=verifiedCoordinates[x.id];if(query)return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(query);const link=String(x.maplink||'').trim();if(/^https:\/\/(maps\.app\.goo\.gl|goo\.gl\/maps|(?:www\.)?google\.[^/]+\/maps)(\/|$)/i.test(link))return link.replace(/[?&]g_st=[^&#]*/i,'').replace(/[?&]$/,'');return ''}
@@ -129,12 +183,14 @@ function render(){
  const q=$('search').value.trim();
  const searchJustCleared=!!lastRenderedSearch&&!q;
  lastRenderedSearch=q;
- $('headerTotal').textContent=items.length;
- const filtered=items.filter(x=>searchMatch(x,q)&&(activeFilter==='すべて'||(activeFilter==='その他'?destinationType(x)==='その他':destinationType(x)===activeFilter)));
+ const shadowed=shadowedDefaults();
+ const visibleItems=items.filter(entry=>!shadowed.has(entry));
+ $('headerTotal').textContent=visibleItems.length;
+ const filtered=visibleItems.filter(x=>searchMatch(x,q)&&(activeFilter==='すべて'||(activeFilter==='その他'?destinationType(x)==='その他':destinationType(x)===activeFilter)));
  document.querySelectorAll('.filter').forEach(b=>{const on=b.dataset.filter===activeFilter;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
  const makeList=a=>{const groups=new Map();for(const x of a){if(!groups.has(x.customer))groups.set(x.customer,[]);groups.get(x.customer).push(x)}return a.length?[...groups].map(([name,places])=>'<details class="company-group" '+(q?'open':'')+'><summary><span class="company-title">'+esc(name)+'</span><span class="company-count">'+places.length+' 件</span></summary><div class="company-places">'+places.map(x=>'<article class="destination"><span class="tag">'+esc(destinationType(x))+'</span><h2>'+esc(x.place||x.customer)+'</h2>'+(x.address?'<p class="muted">📍 '+esc(x.address)+'</p>':'')+(x.memo?'<p class="muted" style="white-space:pre-wrap">'+esc(x.memo)+'</p>':'')+(x.photo?'<img class="photo" alt="納品先写真" src="'+x.photo+'">':'')+'<div class="actions">'+(!coordinatesReady&&x.maplink&&!x.address?'<button class="btn" type="button" disabled>地図を準備中…</button>':'<a class="btn" target="_blank" rel="noopener noreferrer" href="'+esc(mapurl(x))+'">➤ ナビ開始</a>')+'<button class="secondary edit" data-id="'+esc(x.id)+'">編集</button><button class="danger del" data-id="'+esc(x.id)+'">削除</button></div></article>').join('')+'</div></details>').join(''):'<div class="empty">該当する納品先がありません。</div>'};
  const root=$('folderGroups');const previous={};root.querySelectorAll('details.folder-group').forEach(d=>previous[d.dataset.folder||'411C']=d.open);
- const folderResults=folderOrder.map(folder=>({folder, matches:filtered.filter(x=>folderOf(x)===folder), total:items.filter(x=>folderOf(x)===folder).length}));
+ const folderResults=folderOrder.map(folder=>({folder, matches:filtered.filter(x=>folderOf(x)===folder), total:visibleItems.filter(x=>folderOf(x)===folder).length}));
  const shownFolders=q?folderResults.filter(f=>f.matches.length>0).sort((a,b)=>b.matches.length-a.matches.length):folderResults;
  const outside=filtered.filter(x=>folderOf(x)==='');
  root.innerHTML=shownFolders.map(({folder,matches,total})=>'<details class="folder-group" data-folder="'+folder+'" '+((q||(!searchJustCleared&&previous[folder]))?'open':'')+'><summary><span class="folder-symbol">📁</span><span class="folder-label">'+folder+'</span><span class="folder-total">'+(q?matches.length:total)+'件</span></summary><div class="folder-content"><div class="muted">'+matches.length+' 件の納品先</div>'+makeList(matches)+'</div></details>').join('')+(outside.length||!q?'<section class="folder-content" style="margin-top:20px"><h2>📍 フォルダ外（未指定）</h2>'+makeList(outside)+'</section>':'')+(q&&!filtered.length?'<div class="empty">検索に一致する納品先がありません。別の読み方や短い言葉で検索してください。</div>':'');
@@ -161,8 +217,8 @@ function buildDestinationExcel(data){const ns='http://schemas.openxmlformats.org
 ['xl/_rels/workbook.xml.rels',head+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="'+rel+'/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="'+rel+'/styles" Target="styles.xml"/></Relationships>'],
 ['xl/styles.xml',styles],['xl/worksheets/sheet1.xml',sheet],
 ['xl/worksheets/_rels/sheet1.xml.rels',head+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+links.map((x,i)=>'<Relationship Id="rId'+(i+1)+'" Type="'+rel+'/hyperlink" Target="'+excelXml(x.url)+'" TargetMode="External"/>').join('')+'</Relationships>']])}
-$('exportExcel').onclick=()=>{try{downloadExport(buildDestinationExcel(items),'お客様事務所.納品場所一覧_'+exportDate()+'.xlsx')}catch(e){console.error(e);alert('Excelの保存に失敗しました。復元用バックアップをご利用ください。')}};
-$('export').onclick=()=>{try{downloadExport(new Blob([JSON.stringify({app:'nouhinsaki-navi',version:2,items,customFolders,folderOrder},null,2)],{type:'application/json'}),'納品先ナビ_復元用バックアップ_'+exportDate()+'.json')}catch(e){console.error(e);alert('バックアップの保存に失敗しました。')}};
+$('exportExcel').onclick=()=>{try{const shadowedDefaultsForExport=shadowedDefaults();downloadExport(buildDestinationExcel(items.filter(entry=>!shadowedDefaultsForExport.has(entry))),'お客様事務所.納品場所一覧_'+exportDate()+'.xlsx')}catch(e){console.error(e);alert('Excelの保存に失敗しました。復元用バックアップをご利用ください。')}};
+$('export').onclick=()=>{try{downloadExport(new Blob([JSON.stringify({app:'nouhinsaki-navi',version:2,items:deviceDataForBackup(),customFolders,folderOrder},null,2)],{type:'application/json'}),'納品先ナビ_復元用バックアップ_'+exportDate()+'.json')}catch(e){console.error(e);alert('バックアップの保存に失敗しました。')}};
 
 $('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let data=JSON.parse(await f.text());if(data.app!=='nouhinsaki-navi'||!Array.isArray(data.items))throw Error();if(!confirm('現在のデータをバックアップの内容で置き換えます。続けますか？'))return;let old=items;items=data.items.filter(x=>x&&typeof x.id==='string'&&typeof x.customer==='string'&&typeof x.address==='string');if(!save()){items=old}else if(Array.isArray(data.customFolders)){const restored=[...new Set(data.customFolders.filter(x=>typeof x==='string'&&x.trim()&&x.length<=24&&!BASE_FOLDERS.includes(x)))];try{localStorage.setItem(CUSTOM_FOLDER_KEY,JSON.stringify(restored));customFolders=restored;FOLDERS=[...BASE_FOLDERS,...customFolders];folderOrder=Array.isArray(data.folderOrder)?[...new Set(data.folderOrder.filter(x=>FOLDERS.includes(x))),...FOLDERS.filter(x=>!data.folderOrder.includes(x))]:[...FOLDERS];saveFolderOrder();updateFolderSelect();renderFolderOrderPanel()}catch(err){alert('フォルダ設定の復元に失敗しました')}}render()}catch(err){alert('対応するバックアップファイルではありません')}finally{e.target.value=''}};
 load();updateFolderSelect();render();
