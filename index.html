@@ -409,18 +409,21 @@ $('exportExcel').onclick=async ()=>{
     const shadowed = shadowedDefaults();
     const data = items.filter(entry=>!shadowed.has(entry));
     const sharedPhotos = sharedPhotoIndex();
-    const photos = [];
+    const photos = [], failedPhotos = [];
     for (const [index, entry] of data.entries()) {
-      const source = entry.photo || sharedPhotos.get(destinationKey(entry));
+      const source = entry.photo || sharedPhotos.get(destinationKey(entry)) || importantPhoto(entry);
       if (!source) continue;
       try {
         photos.push({row:index+4, ...await readExcelPhoto(source)});
-      } catch {
-        alert('「'+entry.customer+'」の写真を読み込めませんでした。通信状況や写真を確認して、もう一度お試しください。');
-        return;
+      } catch (error) {
+        console.warn('Excel photo skipped:', entry.customer, error);
+        failedPhotos.push(entry.customer+(entry.place?'（'+entry.place+'）':''));
       }
     }
     downloadExport(buildDestinationExcel(data, photos),'お客様事務所.納品場所一覧_'+exportDate()+'.xlsx');
+    if (failedPhotos.length) {
+      alert('Excelを保存しました。\\nただし写真'+failedPhotos.length+'枚は読み込めなかったため、写真だけ省略しました。\\nお客様・住所・備考などのデータはすべて出力しています。\\n対象：'+failedPhotos.slice(0,5).join('、')+(failedPhotos.length>5?' ほか':''));
+    }
   } catch (e) {
     console.error(e);
     alert('Excelの保存に失敗しました。復元用バックアップをご利用ください。');
